@@ -1,533 +1,494 @@
-<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Student Registration Form</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
-
-
+  <title>Modern Registration Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
   <style>
-    :root{
-      /* Colors */
-      --bg: #acacb1;
-      --card: #ad1414;
-      --border: #e5e7eb;
-      --muted: #8491a5;
-      --label: #5b667a;
-      --text: #151518c9;
-
-      --grad-start: #b236f6;
-      --grad-end: #ff59b3;
-      --grad-soft-1: #f9e9fb;
-      --grad-soft-2: #fde6f3;
-
-      --focus: #7c3aed;
-      --accent: #8b5cf6;
-
-      --shadow-lg: 0 16px 40px rgba(47, 79, 144, 0.08);
-      --shadow-md: 0 8px 24px rgba(16,24,40,.08);
-      --radius-lg: 14px;
-      --radius-md: 10px;
-
-      --field-h: 44px;
-      --gap: 16px;
-      --pad: 24px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background: radial-gradient(1100px 80px at -10% -10%, #ffffff 0%, var(--bg) 40%),
-                  radial-gradient(1200px 900px at 110% 110%, #ffffff 0%, var(--bg) 40%),
-                  var(--bg);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",  sans-serif;
-      color: var(--text);
-    }
-
-    .banner{
-      width:min(920px, 92vw);
-      margin: 28px auto;
-      background:#ffffff;
-      border:1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-      padding: 16px 24px;
-      text-align:center;
-      font-weight:600;
-      color:#0f63ea;
-    }
-    .banner--bottom{
-      background:#e9f5ef;
-      color:hwb(119 14% 14%);
-    }
-
-    .card{
-      width:min(920px, 92vw);
-      margin: 20px auto 28px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(180deg, var(--grad-soft-1), var(--grad-soft-2));
-      box-shadow: var(--shadow-lg);
-      border: 1px solid rgba(0,0,0,.04);
-      overflow: hidden;
-    }
-    .card__header{
-      padding: 18px 24px;
-      background: linear-gradient(90deg, var(--grad-start), var(--grad-end));
-      color: #fff;
-      text-align: center;
-      font-family: Poppins, Inter, sans-serif;
-      font-weight: 700;
-      font-size: 20px;
-      letter-spacing:.2px;
-    }
-    .card__body{ padding: 24px; }
-
-    .form-grid{
-      display:grid;
-      grid-template-columns: repeat(12, minmax(0,1fr));
-      gap: var(--gap);
-    }
-    .span-12{grid-column: span 12}
-    .span-6{grid-column: span 6}
-    .span-4{grid-column: span 4}
-    .span-3{grid-column: span 3}
-    @media (max-width: 860px){
-      .span-6, .span-4, .span-3 {grid-column: span 12}
-    }
-
-    .field{display:flex;flex-direction:column;gap:8px}
-    .label{
-      font-size: 12px;
-      color: var(--label);
-      font-weight: 600;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="number"],
-    select,
-    textarea{
-      width:100%;
-      height: var(--field-h);
-      padding: 0 14px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      background: h(0, 2%, 25%, 0.985);
-      color: var(--text);
-      box-shadow: 0 1px 0 rgba(16,24,40,.02);
-      transition: box-shadow .2s, border-color .2s, transform .05s;
+    /* Custom scrollbar for select dropdown arrows */
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
       appearance: none;
-      font-size: 14px;
-    }
-    textarea{min-height:88px;padding:12px 14px;resize: vertical;}
-    input::placeholder, textarea::placeholder{color:#a0a8b8}
-
-    select{
-      background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-position: right 0.5rem center;
       background-repeat: no-repeat;
-      background-position: right 12px center;
-      background-size: 20px 20px;
-      padding-right: 40px;
+      background-size: 1rem;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg fill='none' stroke='%236B7280' stroke-width='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3e%3c/path%3e%3c/svg%3e");
+      padding-right: 2.5rem;
     }
-
-    input:focus, select:focus, textarea:focus{
-      border-color: transparent;
-      outline: none;
-      box-shadow:
-        0 0 0 2px rgba(124,58,237,.18),
-        0 0 0 4px rgba(233, 84, 167, .12);
-      transform: translateZ(0);
-    }
-    input:hover, select:hover, textarea:hover{ border-color:#3670da; }
-
-    .error-msg{
-      display:none;
-      font-size:12px;
-      color:#c2410c;
-      margin-top:-4px;
-    }
-    .invalid input, .invalid select, .invalid textarea{
-      border-color:#ac7965;
-      box-shadow: 0 0 0 2px rgba(216, 79, 25, 0.18);
-    }
-    .invalid .error-msg{display:block}
-
-    .dob-grid, .triple-grid, .checkbox-grid{
-      display:grid; gap: var(--gap);
-    }
-    .dob-grid{grid-template-columns: repeat(3, 1fr)}
-    .triple-grid{grid-template-columns: repeat(3, 1fr)}
-    .checkbox-grid{grid-template-columns: repeat(3, 1fr)}
-    @media (max-width: 860px){
-      .dob-grid, .triple-grid, .checkbox-grid {grid-template-columns: 1fr}
-    }
-
-    input[type="radio"], input[type="checkbox"]{
-      accent-color: var(--accent);
-      width:16px; height:16px; vertical-align:-2px; margin-right:8px;
-    }
-    .options{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
-
-    .table{
-      width:100%;
-      border:1px solid var(--border);
-      border-radius: 8px;
-      background:#fff;
-      overflow:hidden;
-    }
-    .table table{width:100%; border-collapse: collapse}
-    .table th, .table td{
-      padding: 10px 12px;
-      border-bottom:1px solid #eef1f5;
-      text-align:left;
-      font-size: 12px;
-      color: var(--label);
-    }
-    .table thead th{ background:#f7f8fb; font-weight:600; }
-    .table tbody td{ color:#000000; height:52px; }
-    .table input{ height:36px; }
-
-    .actions{
-      display:flex;
-      justify-content:flex-end;
-      gap:12px;
-      margin-top:8px;
-    }
-    .btn{
-      height:40px; padding:0 18px;
-      border-radius: 8px;
-      font-weight:600;
-      font-size:14px;
-      border:1px solid transparent;
-      cursor:pointer;
-      transition: transform .04s ease, box-shadow .2s ease, opacity .2s ease, background-position .2s;
-    }
-    .btn:active{transform: translateY(1px)}
-    .btn-outline{
-      background:#ffffff;
-      border-color:#d8dee8;
-      color:#0e5feb;
-    }
-    .btn-outline:hover{box-shadow: 0 8px 18px rgba(16,24,40,.06)}
-    .btn-primary{
-      color:#fff;
-      background-image: linear-gradient(90deg, var(--grad-start), var(--grad-end));
-      background-size: 200% 100%;
-      box-shadow: 0 10px 22px rgba(233,84,167,.25);
-    }
-    .btn-primary:hover{
-      background-position: 100% 0;
-      box-shadow: 0 12px 26px rgba(178,54,246,.25);
-    }
-
-    .page-end{height: 26px}
   </style>
 </head>
-<body>
+<body class="bg-gradient-to-tr from-gray-100 via-gray-50 to-gray-100 min-h-screen flex flex-col items-center py-10 px-4">
+  <div
+    class="max-w-3xl w-full bg-white bg-opacity-90 shadow-lg rounded-md mb-10 py-4 text-center"
+    style="box-shadow: 0 8px 15px -5px rgb(0 0 0 / 0.1);"
+  >
+    <h2 class="text-blue-700 font-semibold text-sm md:text-base">
+      Modern Registration Form
+    </h2>
+  </div>
 
-  <div class="banner">Modern Registration Form</div>
+  <form
+    class="max-w-3xl w-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-t-md"
+    aria-label="Student Registration Form"
+  >
+    <h3
+      class="text-white font-semibold text-lg md:text-xl py-3 text-center rounded-t-md"
+      style="background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 100%)"
+    >
+      Student Registration Form
+    </h3>
+  </form>
 
-  <section class="card">
-    <div class="card__header">Student Registration Form</div>
-
-    <div class="card__body">
-      <form id="studentForm" class="form-grid" novalidate>
-        <div class="field span-6">
-          <label class="label" for="firstName">First Name</label>
-          <input id="firstName" name="firstName" type="text" placeholder="Enter first name" required />
-          <div class="error-msg">Please enter first name.</div>
-        </div>
-        <div class="field span-6">
-          <label class="label" for="lastName">Last Name</label>
-          <input id="lastName" name="lastName" type="text" placeholder="Enter last name" required />
-          <div class="error-msg">Please enter last name.</div>
-        </div>
-
-        <div class="field span-12">
-          <div class="label">Date of Birth</div>
-          <div class="dob-grid">
-            <select id="dobDay" name="dobDay" required aria-label="Day"></select>
-            <select id="dobMonth" name="dobMonth" required aria-label="Month"></select>
-            <select id="dobYear" name="dobYear" required aria-label="Year"></select>
-          </div>
-          <div class="error-msg">Please select a valid date of birth.</div>
-        </div>
-
-        <div class="field span-6">
-          <label class="label" for="email">Email ID</label>
-          <input id="email" name="email" type="email" placeholder="Enter email address" required />
-          <div class="error-msg">Enter a valid email address.</div>
-        </div>
-        <div class="field span-6">
-          <label class="label" for="mobile">Mobile Number</label>
-          <input id="mobile" name="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="Enter 10-digit mobile number" required />
-          <div class="error-msg">Enter a 10-digit mobile number.</div>
-        </div>
-
-        <div class="field span-12">
-          <div class="label">Gender</div>
-          <div class="options" role="radiogroup" aria-label="Gender">
-            <label><input type="radio" name="gender" value="Male" required> Male</label>
-            <label><input type="radio" name="gender" value="Female" required> Female</label>
-          </div>
-          <div class="error-msg">Please select gender.</div>
-        </div>
-
-        <div class="field span-12">
-          <label class="label" for="address">Address</label>
-          <textarea id="address" name="address" placeholder="Enter your full address" required></textarea>
-          <div class="error-msg">Address is required.</div>
-        </div>
-
-        <div class="span-12 triple-grid">
-          <div class="field">
-            <label class="label" for="city">City</label>
-            <input id="city" name="city" type="text" placeholder="Enter city" required />
-            <div class="error-msg">City is required.</div>
-          </div>
-          <div class="field">
-            <label class="label" for="pin">PIN Code</label>
-            <input id="pin" name="pin" type="text" inputmode="numeric" pattern="\\d{6}" maxlength="6" placeholder="Enter 6-digit PIN code" required />
-            <div class="error-msg">Enter a 6-digit PIN code.</div>
-          </div>
-          <div class="field">
-            <label class="label" for="state">State</label>
-            <input id="state" name="state" type="text" placeholder="Enter state" required />
-            <div class="error-msg">State is required.</div>
-          </div>
-        </div>
-
-        <div class="field span-12">
-          <label class="label" for="country">Country</label>
-          <select id="country" name="country" required>
-            <option value="" selected disabled>Select country</option>
-            <option>United States</option>
-            <option>Canada</option>
-            <option>India</option>
-            <option>United Kingdom</option>
-            <option>Australia</option>
-            <option>Other</option>
-          </select>
-          <div class="error-msg">Please select a country.</div>
-        </div>
-
-        <div class="field span-12">
-          <div class="label">Hobbies</div>
-          <div class="checkbox-grid">
-            <label><input type="checkbox" name="hobbies" value="Drawing"> Drawing</label>
-            <label><input type="checkbox" name="hobbies" value="Singing"> Singing</label>
-            <label><input type="checkbox" name="hobbies" value="Dancing"> Dancing</label>
-            <label><input type="checkbox" name="hobbies" value="Sketching"> Sketching</label>
-            <label><input type="checkbox" name="hobbies" value="Others" id="hobbyOtherChk"> Others</label>
-            <div id="hobbyOtherWrap" style="display:none;">
-              <input type="text" id="hobbyOtherText" placeholder="Please specify" />
-            </div>
-          </div>
-        </div>
-
-        <div class="field span-12">
-          <div class="label" style="margin-bottom:8px;">Qualification</div>
-          <div class="table" role="group" aria-label="Qualification">
-            <table>
-              <thead>
-                <tr>
-                  <th style="width:56px">Sr.No.</th>
-                  <th>Examination</th>
-                  <th>Board</th>
-                  <th style="width:160px">Percentage</th>
-                  <th style="width:160px">Year of Passing</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td><td>Class X</td>
-                  <td><input type="text" name="board10" placeholder="" /></td>
-                  <td><input type="number" name="percent10" min="0" max="100" step="0.01" placeholder="" /></td>
-                  <td><input type="number" name="year10" min="1950" max="2099" placeholder="" /></td>
-                </tr>
-                <tr>
-                  <td>2</td><td>Class XII</td>
-                  <td><input type="text" name="board12" /></td>
-                  <td><input type="number" name="percent12" min="0" max="100" step="0.01" /></td>
-                  <td><input type="number" name="year12" min="1950" max="2099" /></td>
-                </tr>
-                <tr>
-                  <td>3</td><td>Graduation</td>
-                  <td><input type="text" name="boardGrad" /></td>
-                  <td><input type="number" name="percentGrad" min="0" max="100" step="0.01" /></td>
-                  <td><input type="number" name="yearGrad" min="1950" max="2099" /></td>
-                </tr>
-                <tr>
-                  <td>4</td><td>Masters</td>
-                  <td><input type="text" name="boardMasters" /></td>
-                  <td><input type="number" name="percentMasters" min="0" max="100" step="0.01" /></td>
-                  <td><input type="number" name="yearMasters" min="1950" max="2000" /></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="field span-12">
-          <div class="label">Courses Applied For</div>
-          <div class="options">
-            <label><input type="radio" name="course" value="BCA" required> BCA</label>
-            <label><input type="radio" name="course" value="B.Com" required> B.Com</label>
-            <label><input type="radio" name="course" value="B.Sc" required> B.Sc</label>
-            <label><input type="radio" name="course" value="B.A" required> B.A</label>
-          </div>
-          <div class="error-msg">Please select a course.</div>
-        </div>
-
-        <div class="span-12 actions">
-          <button type="reset" class="btn btn-outline">Reset</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-
-      </form>
+  <form
+    class="max-w-3xl w-full bg-pink-50 rounded-b-md shadow-lg px-6 py-6"
+    aria-label="Student Registration Form Content"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+      <div>
+        <label for="firstName" class="block text-xs font-semibold text-gray-700 mb-1"
+          >First Name</label
+        >
+        <input
+          id="firstName"
+          type="text"
+          placeholder="Enter first name"
+          class="w-full border border-gray-300 rounded px-3 py-2 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+        />
+      </div>
+      <div>
+        <label for="lastName" class="block text-xs font-semibold text-gray-700 mb-1"
+          >Last Name</label
+        >
+        <input
+          id="lastName"
+          type="text"
+          placeholder="Enter last name"
+          class="w-full border border-gray-300 rounded px-3 py-2 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+        />
+      </div>
     </div>
-  </section>
 
-  <div class="banner banner--bottom">Professional Registration Form</div>
-  <div class="page-end"></div>
+    <div class="mb-4">
+      <label class="block text-xs font-semibold text-gray-700 mb-1"
+        >Date of Birth</label
+      >
+      <div class="flex space-x-4 max-w-md">
+        <select
+          aria-label="Day"
+          class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+        >
+          <option selected disabled>Day</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+          <option>13</option>
+          <option>14</option>
+          <option>15</option>
+          <option>16</option>
+          <option>17</option>
+          <option>18</option>
+          <option>19</option>
+          <option>20</option>
+          <option>21</option>
+          <option>22</option>
+          <option>23</option>
+          <option>24</option>
+          <option>25</option>
+          <option>26</option>
+          <option>27</option>
+          <option>28</option>
+          <option>29</option>
+          <option>30</option>
+          <option>31</option>
+        </select>
+        <select
+          aria-label="Month"
+          class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+        >
+          <option selected disabled>Month</option>
+          <option>January</option>
+          <option>February</option>
+          <option>March</option>
+          <option>April</option>
+          <option>May</option>
+          <option>June</option>
+          <option>July</option>
+          <option>August</option>
+          <option>September</option>
+          <option>October</option>
+          <option>November</option>
+          <option>December</option>
+        </select>
+        <select
+          aria-label="Year"
+          class="flex-1 border border-gray-300 rounded px-3 py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+        >
+          <option selected disabled>Year</option>
+          <option>2024</option>
+          <option>2023</option>
+          <option>2022</option>
+          <option>2021</option>
+          <option>2020</option>
+          <option>2019</option>
+          <option>2018</option>
+          <option>2017</option>
+          <option>2016</option>
+          <option>2015</option>
+          <option>2014</option>
+          <option>2013</option>
+          <option>2012</option>
+          <option>2011</option>
+          <option>2010</option>
+          <option>2009</option>
+          <option>2008</option>
+          <option>2007</option>
+          <option>2006</option>
+          <option>2005</option>
+          <option>2004</option>
+          <option>2003</option>
+          <option>2002</option>
+          <option>2001</option>
+          <option>2000</option>
+        </select>
+      </div>
+    </div>
 
-  <script>
-    // Populate DOB selects
-    const daySel = document.getElementById('dobDay');
-    const monthSel = document.getElementById('dobMonth');
-    const yearSel = document.getElementById('dobYear');
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+      <div>
+        <label for="email" class="block text-xs font-semibold text-gray-700 mb-1"
+          >Email ID</label
+        >
+        <input
+          id="email"
+          type="email"
+          placeholder="Enter email address"
+          class="w-full border border-gray-300 rounded px-3 py-2 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+        />
+      </div>
+      <div>
+        <label for="mobile" class="block text-xs font-semibold text-gray-700 mb-1"
+          >Mobile Number</label
+        >
+        <input
+          id="mobile"
+          type="tel"
+          placeholder="Enter 10-digit mobile number"
+          class="w-full border border-gray-300 rounded px-3 py-2 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+          maxlength="10"
+          pattern="[0-9]{10}"
+        />
+      </div>
+    </div>
 
-    function fillDOB() {
-      daySel.innerHTML = '<option value="" disabled selected>Day</option>';
-      for(let d=1; d<=31; d++){
-        const opt = document.createElement('option');
-        opt.value = d; opt.textContent = d;
-        daySel.appendChild(opt);
-      }
+    <fieldset class="mb-4">
+      <legend class="text-xs font-semibold text-gray-700 mb-2">Gender</legend>
+      <div class="flex space-x-6 text-sm text-gray-700">
+        <label class="inline-flex items-center">
+          <input
+            type="radio"
+            name="gender"
+            value="male"
+            class="form-radio text-purple-600"
+          />
+          <span class="ml-2">Male</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input
+            type="radio"
+            name="gender"
+            value="female"
+            class="form-radio text-purple-600"
+          />
+          <span class="ml-2">Female</span>
+        </label>
+      </div>
+    </fieldset>
 
-      const months = ["Month","January","February","March","April","May","June","July","August","September","October","November","December"];
-      monthSel.innerHTML = months.map((m,i)=> i===0
-        ? '<option value="" disabled selected>Month</option>'
-        : `<option value="${i}">${m}</option>`).join('');
+    <div class="mb-4">
+      <label for="address" class="block text-xs font-semibold text-gray-700 mb-1"
+        >Address</label
+      >
+      <textarea
+        id="address"
+        rows="3"
+        placeholder="Enter your full address"
+        class="w-full border border-gray-300 rounded px-3 py-2 text-sm placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+      ></textarea>
+    </div>
 
-      const now = new Date().getFullYear();
-      const start = now - 60;
-      yearSel.innerHTML = '<option value="" disabled selected>Year</option>';
-      for(let y = now; y >= start; y--){
-        const opt = document.createElement('option');
-        opt.value = y; opt.textContent = y;
-        yearSel.appendChild(opt);
-      }
-    }
-    fillDOB();
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4 mb-4">
+      <div>
+        <label for="city" class="block text-xs font-semibold text-gray-700 mb-1"
+          >City</label
+        >
+        <input
+          id="city"
+          type="text"
+          placeholder="Enter city"
+          class="w-full border border-gray-300 rounded px-3 py-2 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+        />
+      </div>
+      <div>
+        <label for="pin" class="block text-xs font-semibold text-gray-700 mb-1"
+          >PIN Code</label
+        >
+        <input
+          id="pin"
+          type="text"
+          placeholder="Enter 6-digit PIN code"
+          maxlength="6"
+          class="w-full border border-gray-300 rounded px-3 py-2 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+        />
+      </div>
+      <div>
+        <label for="state" class="block text-xs font-semibold text-gray-700 mb-1"
+          >State</label
+        >
+        <input
+          id="state"
+          type="text"
+          placeholder="Enter state"
+          class="w-full border border-gray-300 rounded px-3 py-2 text-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+        />
+      </div>
+    </div>
 
-    // "Others" hobby reveal
-    const otherChk = document.getElementById('hobbyOtherChk');
-    const otherWrap = document.getElementById('hobbyOtherWrap');
-    otherChk.addEventListener('change', () => {
-      otherWrap.style.display = otherChk.checked ? 'block' : 'none';
-      if(!otherChk.checked) document.getElementById('hobbyOtherText').value = '';
-    });
+    <div class="mb-4">
+      <label for="country" class="block text-xs font-semibold text-gray-700 mb-1"
+        >Country</label
+      >
+      <select
+        id="country"
+        class="w-full border border-gray-300 rounded px-3 py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+      >
+        <option selected disabled>Select country</option>
+        <option>United States</option>
+        <option>India</option>
+        <option>United Kingdom</option>
+        <option>Canada</option>
+        <option>Australia</option>
+        <option>Germany</option>
+        <option>France</option>
+        <option>Japan</option>
+        <option>China</option>
+        <option>Brazil</option>
+      </select>
+    </div>
 
-    // Numeric masks
-    const mobile = document.getElementById('mobile');
-    mobile.addEventListener('input', () => {
-      mobile.value = mobile.value.replace(/[^0-9]/g,'').slice(0,10);
-    });
-    const pin = document.getElementById('pin');
-    pin.addEventListener('input', () => {
-      pin.value = pin.value.replace(/[^0-9]/g,'').slice(0,6);
-    });
+    <fieldset class="mb-4">
+      <legend class="text-xs font-semibold text-gray-700 mb-2">Hobbies</legend>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-2 text-sm text-gray-700">
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox text-purple-600" />
+          <span class="ml-2">Drawing</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox text-purple-600" />
+          <span class="ml-2">Singing</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox text-purple-600" />
+          <span class="ml-2">Dancing</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox text-purple-600" />
+          <span class="ml-2">Sketching</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox text-purple-600" />
+          <span class="ml-2">Others</span>
+        </label>
+      </div>
+    </fieldset>
 
-    // Validation
-    const form = document.getElementById('studentForm');
+    <fieldset class="mb-6">
+      <legend class="text-xs font-semibold text-gray-700 mb-2">Qualification</legend>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-gray-600 border border-gray-200 rounded-md">
+          <thead class="bg-white border-b border-gray-200">
+            <tr>
+              <th class="py-2 px-3 font-semibold text-gray-400">Sr.No.</th>
+              <th class="py-2 px-3 font-semibold text-gray-400">Examination</th>
+              <th class="py-2 px-3 font-semibold text-gray-400">Board</th>
+              <th class="py-2 px-3 font-semibold text-gray-400">Percentage</th>
+              <th class="py-2 px-3 font-semibold text-gray-400">Year of Passing</th>
+            </tr>
+          </thead>
+          <tbody class="bg-white">
+            <tr class="border-t border-gray-200">
+              <td class="py-2 px-3 font-semibold">1</td>
+              <td class="py-2 px-3 font-semibold">Class X</td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+            </tr>
+            <tr class="border-t border-gray-200">
+              <td class="py-2 px-3 font-semibold">2</td>
+              <td class="py-2 px-3 font-semibold">Class XII</td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+            </tr>
+            <tr class="border-t border-gray-200">
+              <td class="py-2 px-3 font-semibold">3</td>
+              <td class="py-2 px-3 font-semibold">Graduation</td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+            </tr>
+            <tr class="border-t border-gray-200">
+              <td class="py-2 px-3 font-semibold">4</td>
+              <td class="py-2 px-3 font-semibold">Masters</td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+              <td class="py-2 px-3">
+                <input
+                  type="text"
+                  class="w-full border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </fieldset>
 
-    function setInvalid(field, message){
-      const wrapper = field.closest('.field') || field.parentElement;
-      wrapper.classList.add('invalid');
-      const msgEl = wrapper.querySelector('.error-msg');
-      if(msgEl) msgEl.textContent = message || msgEl.textContent;
-      field.setAttribute('aria-invalid','true');
-    }
-    function clearInvalid(field){
-      const wrapper = field.closest('.field') || field.parentElement;
-      wrapper.classList.remove('invalid');
-      field.removeAttribute('aria-invalid');
-    }
+    <fieldset class="mb-6">
+      <legend class="text-xs font-semibold text-gray-700 mb-2">
+        Courses Applied For
+      </legend>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-700">
+        <label class="inline-flex items-center">
+          <input
+            type="radio"
+            name="course"
+            value="BCA"
+            class="form-radio text-purple-600"
+          />
+          <span class="ml-2">BCA</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input
+            type="radio"
+            name="course"
+            value="B.Com"
+            class="form-radio text-purple-600"
+          />
+          <span class="ml-2">B.Com</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input
+            type="radio"
+            name="course"
+            value="B.Sc"
+            class="form-radio text-purple-600"
+          />
+          <span class="ml-2">B.Sc</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input
+            type="radio"
+            name="course"
+            value="B.A"
+            class="form-radio text-purple-600"
+          />
+          <span class="ml-2">B.A</span>
+        </label>
+      </div>
+    </fieldset>
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      let ok = true;
-      const requiredFields = [
-        'firstName','lastName','email','mobile','address','city','pin','state','country'
-      ];
-      requiredFields.forEach(id=>{
-        const el = document.getElementById(id);
-        if(!el.value.trim()){
-          ok=false; setInvalid(el, 'This field is required.');
-        }else{
-          clearInvalid(el);
-        }
-      });
+    <div class="flex justify-end space-x-4">
+      <button
+        type="reset"
+        class="px-4 py-2 text-xs text-gray-600 bg-white border border-gray-300 rounded hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent"
+      >
+        Reset
+      </button>
+      <button
+        type="submit"
+        class="px-4 py-2 text-xs text-white rounded bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-1"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
 
-      const email = document.getElementById('email');
-      if(email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
-        ok=false; setInvalid(email, 'Enter a valid email address.');
-      }
-
-      if(mobile.value.length !== 10){
-        ok=false; setInvalid(mobile, 'Enter a 10-digit mobile number.');
-      }
-
-      if(pin.value.length !== 6){
-        ok=false; setInvalid(pin, 'Enter a 6-digit PIN code.');
-      }
-
-      const genderChecked = !!form.querySelector('input[name="gender"]:checked');
-      const courseChecked = !!form.querySelector('input[name="course"]:checked');
-      const gField = form.querySelector('input[name="gender"]').closest('.field');
-      const cField = form.querySelector('input[name="course"]').closest('.field');
-      gField.classList.toggle('invalid', !genderChecked);
-      cField.classList.toggle('invalid', !courseChecked);
-
-      const validDOB = daySel.value && monthSel.value && yearSel.value;
-      if(!validDOB){
-        setInvalid(daySel.closest('.field').querySelector('select'),'Please select your date of birth.');
-        ok=false;
-      }else{
-        clearInvalid(daySel.closest('.field').querySelector('select'));
-      }
-
-      if(ok){
-        const submitBtn = form.querySelector('.btn-primary');
-        const original = submitBtn.textContent;
-        submitBtn.textContent = 'Submitted ✓';
-        submitBtn.style.opacity = .92;
-        setTimeout(()=>{ submitBtn.textContent = original; submitBtn.style.opacity = 1; form.reset(); otherWrap.style.display='none'; fillDOB(); }, 1200);
-      }
-    });
-
-    form.addEventListener('input', (e)=>{
-      const el = e.target;
-      if(['INPUT','SELECT','TEXTAREA'].includes(el.tagName)){
-        clearInvalid(el);
-      }
-    });
-
-    form.addEventListener('reset', ()=>{
-      setTimeout(()=>{
-        form.querySelectorAll('.invalid').forEach(n=>n.classList.remove('invalid'));
-        otherWrap.style.display='none';
-        fillDOB();
-      },0);
-    });
-  </script>
+  <div
+    class="max-w-3xl w-full bg-white bg-opacity-90 shadow-lg rounded-md mt-10 py-4 text-center"
+    style="box-shadow: 0 8px 15px -5px rgb(0 0 0 / 0.1);"
+  >
+    <h2 class="text-teal-700 font-semibold text-sm md:text-base">
+      Professional Registration Form
+    </h2>
+  </div>
 </body>
 </html>
